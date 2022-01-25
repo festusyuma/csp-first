@@ -19,11 +19,9 @@ namespace csp_first
             {
                 var randomNumber = GenerateRandomNumber();
                 int? guess = 0;
-            
-                // Ask user for input
+                
                 do
                 {
-                    Console.WriteLine("Guess a number between 1 and 10");
                     guess = GetUserGuess();
                     if (guess == null) continue;
 
@@ -75,6 +73,7 @@ namespace csp_first
         {
             try
             {
+                Console.WriteLine("Guess a number between 1 and 10");
                 return Convert.ToInt32(Console.ReadLine());
             }
             catch (Exception e)
