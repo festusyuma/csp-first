@@ -12,8 +12,7 @@ namespace csp_first
             Console.Write("Enter your username: ");
             var username = Console.ReadLine();
             Console.WriteLine("************************");
-
-            Console.WriteLine("Welcome {0}, let's play a game...", username);
+            Console.WriteLine($"Welcome {username}, let's play a game...");
 
             while (true)
             {
@@ -26,20 +25,9 @@ namespace csp_first
                     if (guess == null) continue;
 
                     // Check if guess correct
-                    if (guess == randomNumber)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Correct guess, you must be really smart");
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Wrong!!!!, please try again");
-                    }
-                
-                    // Reset color
-                    Console.ResetColor();
-                
+                    if (guess == randomNumber) PrintColoredMessage("Correct guess, you must be really smart", ConsoleColor.Green);
+                    else PrintColoredMessage("Wrong!!!!, please try again", ConsoleColor.Red);
+
                 } while (guess != randomNumber);
                 
                 Console.WriteLine("Do you want to play again (enter y to continue)?");
@@ -60,13 +48,7 @@ namespace csp_first
             const string appName = "Number Guesser";
             const string appVersion = "1.0.0";
             const string appAuthor = "Festus";
-            
-            // Print title with cyan color
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("{0}: Version {1} by {2}", appName, appVersion, appAuthor);
-            
-            // Reset text color
-            Console.ResetColor();
+            PrintColoredMessage($"{appName}: Version {appVersion} by {appAuthor}", ConsoleColor.DarkCyan);
         }
 
         static int? GetUserGuess()
@@ -78,9 +60,7 @@ namespace csp_first
             }
             catch (Exception e)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Enter a valid number");
-                Console.ResetColor();
+                PrintColoredMessage("Enter a valid number", ConsoleColor.Red);
             }
 
             return null;
@@ -90,6 +70,13 @@ namespace csp_first
         {
             var random = new Random();
             return random.Next(1, 10);
+        }
+        
+        static void PrintColoredMessage(string message, ConsoleColor? color)
+        {
+            if (color != null) Console.ForegroundColor = (ConsoleColor) color;
+            Console.WriteLine(message);
+            Console.ResetColor();
         }
     }
 }
