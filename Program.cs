@@ -17,7 +17,7 @@ namespace csp_first
             while (true)
             {
                 var randomNumber = GenerateRandomNumber();
-                int? guess = 0;
+                int? guess;
                 
                 do
                 {
@@ -51,7 +51,7 @@ namespace csp_first
             PrintColoredMessage($"{appName}: Version {appVersion} by {appAuthor}", ConsoleColor.DarkCyan);
         }
 
-        static int? GetUserGuess()
+        private static int? GetUserGuess()
         {
             try
             {
@@ -66,13 +66,13 @@ namespace csp_first
             return null;
         }
 
-        static int GenerateRandomNumber()
+        private static int GenerateRandomNumber()
         {
             var random = new Random();
             return random.Next(1, 10);
         }
-        
-        static void PrintColoredMessage(string message, ConsoleColor? color)
+
+        private static void PrintColoredMessage(string message, ConsoleColor? color)
         {
             if (color != null) Console.ForegroundColor = (ConsoleColor) color;
             Console.WriteLine(message);
