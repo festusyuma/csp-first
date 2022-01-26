@@ -6,6 +6,7 @@ namespace csp_first
     {
         public static void Main(string[] args)
         {
+            PlayWithStrings();
             ShowAppInfo();
             
             // Get player name
@@ -77,6 +78,38 @@ namespace csp_first
             if (color != null) Console.ForegroundColor = (ConsoleColor) color;
             Console.WriteLine(message);
             Console.ResetColor();
+        }
+        
+        private static void PlayWithStrings()
+        {
+            var firstName = "Festus";
+            var lastName = "Agboma";
+            Console.WriteLine(firstName);
+            
+            // concat
+            var fullName = firstName + " " + lastName;
+            Console.WriteLine(fullName);
+            
+            // count
+            Console.WriteLine(fullName.Length);
+            Console.WriteLine(firstName.Length);
+            Console.WriteLine(lastName.Length);
+            
+            // toUpper
+            Console.WriteLine(firstName.ToUpper());
+            
+            // find
+            Console.WriteLine(fullName.ToLower().Contains("festus"));
+            
+            // find with index
+            Console.WriteLine(firstName[5]);
+            
+            // find index
+            Console.WriteLine(firstName.ToLower().IndexOf('f'));
+
+            var startIndex = fullName.ToLower().IndexOf("ag", StringComparison.Ordinal);
+            Console.WriteLine(fullName.Substring(startIndex));
+            Console.WriteLine(fullName.Substring(0, startIndex - 1));
         }
     }
 }
