@@ -6,7 +6,8 @@ namespace csp_first
     {
         public static void Main(string[] args)
         {
-            PlayWithStrings();
+            // PlayWithStrings();
+            PlayWithNumbers();
             ShowAppInfo();
             
             // Get player name
@@ -110,6 +111,32 @@ namespace csp_first
             var startIndex = fullName.ToLower().IndexOf("ag", StringComparison.Ordinal);
             Console.WriteLine(fullName.Substring(startIndex));
             Console.WriteLine(fullName.Substring(0, startIndex - 1));
+        }
+
+        private static void PlayWithNumbers()
+        {
+            var numOne = 30;
+            var numTwo = 11.2;
+            var numThree = 4;
+            
+            Console.WriteLine(numOne);
+            Console.WriteLine(numTwo);
+            
+            Console.WriteLine(numOne + numTwo);
+            Console.WriteLine(numOne * numTwo);
+            
+            Console.WriteLine(numOne / numTwo);
+            Console.WriteLine(numOne / numThree);
+            
+            Console.WriteLine(--numThree);
+            
+            Console.WriteLine(Math.Pow(numThree, 2));
+            Console.WriteLine(Math.Sqrt(numThree));
+            
+            Console.WriteLine(Math.Max(3, 10));
+            Console.WriteLine(Math.Min(3, 10));
+            
+            Console.WriteLine(Math.Round(3.4));
         }
     }
 }
